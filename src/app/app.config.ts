@@ -1,12 +1,14 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter } from '@angular/router'; // Importa el proveedor de rutas
+import { provideAnimations } from '@angular/platform-browser/animations'; // Importa el proveedor de animaciones
 
-import { routes } from './app.routes';
+import { routes } from './app.routes'; // Importa las rutas definidas
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes)
+    provideBrowserGlobalErrorListeners(), // Maneja errores globales del navegador
+    provideZoneChangeDetection({ eventCoalescing: true }), // Optimiza la detección de cambios
+    provideRouter(routes), // Configura el sistema de rutas
+    provideAnimations() // Habilita las animaciones de Angular
   ]
 };
