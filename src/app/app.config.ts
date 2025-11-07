@@ -1,3 +1,7 @@
+/* [01] app.config.ts
+  1 - Configuración principal: providers (rutas, animaciones y detección de cambios)
+  Útil para explicar a alumnos cómo se habilitan las animaciones y el router.
+*/
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router'; // Importa el proveedor de rutas
 import { provideAnimations } from '@angular/platform-browser/animations'; // Importa el proveedor de animaciones

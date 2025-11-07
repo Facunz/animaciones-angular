@@ -1,0 +1,175 @@
+<!-- [10] components/home/home.component.html
+  10 - Template Home: contenido introductorio y modal de documentación
+-->
+<!-- Bootstrap CDN incluido en index.html -->
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center text-light">
+  <div class="row justify-content-center w-100">
+    <div class="col-lg-8 col-xl-6 text-center">
+      
+      <!-- Hero Section -->
+      <div class="mb-5">
+        <h1 class="display-3 fw-bold mb-4">
+          🎮 Animaciones Angular
+        </h1>
+        <p class="lead fs-4 mb-4">
+          Descubre el poder de las animaciones en Angular con ejemplos interactivos
+        </p>
+        <p class="fs-5 text-muted">
+          Una colección completa de animaciones modernas usando Angular Animations API
+        </p>
+      </div>
+
+      <!-- Features Cards -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-play-circle display-6 mb-3"></i>
+              <h5 class="card-title">Animaciones Interactivas</h5>
+              <p class="card-text">Explora efectos visuales al pasar el mouse</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-lightning display-6 mb-3"></i>
+              <h5 class="card-title">Rendimiento Óptimo</h5>
+              <p class="card-text">Animaciones fluidas y optimizadas</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-code-slash display-6 mb-3"></i>
+              <h5 class="card-title">Código Moderno</h5>
+              <p class="card-text">Implementado con las últimas versiones de Angular</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation Types -->
+      <div class="mb-5">
+        <h3 class="mb-4">Tipos de Animaciones Disponibles</h3>
+        <!-- Contenedor flexible: agrupa badges y permite wrap -->
+        <div class="badges-wrap d-flex flex-wrap justify-content-center align-items-center">
+          <span class="badge fs-6">Fade (Desvanecer)</span>
+          <span class="badge fs-6">Slide (Deslizar)</span>
+          <span class="badge fs-6">Expand (Expandir)</span>
+          <span class="badge fs-6">Stagger (Escalonado)</span>
+          <span class="badge fs-6">Rotate (Rotar)</span>
+          <span class="badge fs-6">Zoom (Acercar)</span>
+          <span class="badge fs-6">Flip (Voltear)</span>
+          <span class="badge fs-6">Shake (Temblar)</span>
+          <span class="badge fs-6">Pulse (Pulsar)</span>
+          <span class="badge fs-6">Bounce (Rebotar)</span>
+          <span class="badge fs-6">Swing (Balanceo)</span>
+          <span class="badge fs-6">Wobble (Bambolear)</span>
+          <span class="badge fs-6">Glow (Brillar)</span>
+          <span class="badge fs-6">HeartBeat (Latido)</span>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button 
+          type="button" 
+          class="btn btn-warning btn-lg px-5 py-3"
+          (click)="goToAnimations()">
+          🚀 Explorar Animaciones
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-outline-warning btn-lg px-4 py-3"
+          (click)="openDocumentation()">
+          📖 Documentación
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-5 pt-4 border-top">
+        <p class="text-muted">
+        UTN Avellaneda. Laboratorio 4. 2025 🎮🕹️✨
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Documentación -->
+<div class="modal fade show d-block" 
+     *ngIf="showDocumentation" 
+     tabindex="-1" 
+     style="background-color: rgba(0,0,0,0.8);">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content text-light">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          📖 Documentación de Animaciones.
+        </h4>
+        <button 
+          type="button" 
+          class="btn-close" 
+          (click)="closeDocumentation()">
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="alert alert-warning" role="alert">
+              <h5 class="alert-heading">🎮 Guía de Uso en Salas de Juegos</h5>
+              <p class="mb-0">
+                Cada animación está diseñada para mejorar la experiencia del usuario en entornos gaming. 
+                Aquí encontrarás ejemplos específicos de cómo implementar cada efecto.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Grid de animaciones con ejemplos -->
+          <div class="col-12">
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-4" *ngFor="let animation of animationsDoc">
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h6 class="mb-0 fw-bold">{{ animation.name }}</h6>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text mb-3" style="font-size: 0.9rem;">
+                      {{ animation.description }}
+                    </p>
+                    <div class="border-top pt-3" style="border-color: var(--accent-gold) !important;">
+                      <h6 class="mb-2" style="color: var(--accent-gold);">🎯 Ejemplos de Uso:</h6>
+                      <ul class="list-unstyled">
+                        <li class="mb-2" style="font-size: 0.85rem; color: #d0d0d0;" 
+                            *ngFor="let example of animation.gameExamples">
+                          {{ example }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button 
+          type="button" 
+          class="btn btn-outline-warning"
+          (click)="closeDocumentation()">
+          Cerrar
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-warning"
+          (click)="goToAnimations(); closeDocumentation()">
+          🚀 Ver Animaciones en Acción
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

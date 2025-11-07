@@ -1,0 +1,37 @@
+/* [05] app-routing.css
+   5 - Estilos del contenedor de rutas y variables globales para transiciones
+*/
+/* Router Container Styles */
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1A1A1A 0%, #0D1B2A 100%);
+}
+
+/* Route Animation Support */
+router-outlet + * {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* Global Fonts para toda la aplicación */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, .logo, .display-4 {
+  font-family: 'Orbitron', monospace;
+}
+
+/* Paleta de colores League of Legends */
+:root {
+  --primary-red: #E53935;
+  --secondary-orange: #F57C00;
+  --accent-gold: #D4A017;
+  --success-green: #2ECC71;
+  --dark-bg: #1A1A1A;
+  --navy-blue: #0D1B2A;
+}

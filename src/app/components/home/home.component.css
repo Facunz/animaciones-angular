@@ -1,0 +1,255 @@
+/* [11] components/home/home.component.css
+  11 - Estilos del Home (presentación) — menos técnico
+*/
+/* Paleta de colores compatible con la página de animaciones */
+:host {
+  --accent-red: #e53935;
+  --accent-orange: #f57c00;
+  --accent-gold: #d4a017;
+  --accent-green: #2ecc71;
+  --bg-dark: #0d1b2a;
+  --panel: #1a1a1a;
+}
+
+/* Contenedor principal con el mismo gradiente */
+.container-fluid {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--panel) 65%) !important;
+  position: relative;
+}
+
+/* Efecto de textura metálica como en animaciones */
+.container-fluid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(229, 57, 53, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(26, 26, 26, 0.15), rgba(13, 27, 42, 0.2));
+  background-size: 14px 14px, 100% 100%;
+  mix-blend-mode: overlay;
+  opacity: 0.9;
+}
+
+/* Asegurar que el contenido esté sobre la textura */
+.row {
+  position: relative;
+  z-index: 1;
+}
+
+/* Título principal con gradiente de colores */
+.display-3 {
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-orange), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 2px;
+}
+
+/* Subtítulos con color dorado */
+.lead {
+  color: var(--accent-gold) !important;
+  text-shadow: 0 2px 10px rgba(212, 160, 23, 0.3);
+}
+
+.text-muted {
+  color: #b8b8b8 !important;
+}
+
+/* Cards con el mismo estilo que las animaciones */
+.card {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(13, 27, 42, 0.9)) !important;
+  border: 2px solid var(--accent-gold) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(229, 57, 53, 0.3), 0 0 40px rgba(245, 124, 0, 0.2);
+  border-color: var(--accent-orange) !important;
+}
+
+.card-title {
+  color: var(--accent-gold) !important;
+  font-family: 'Orbitron', monospace;
+}
+
+.card-text {
+  color: #d0d0d0 !important;
+}
+
+/* Iconos con color dorado */
+.bi {
+  color: var(--accent-gold) !important;
+}
+
+/* Badges con estilo gaming */
+.badge {
+  display: inline-block; /* asegurar que no ocupen todo el ancho */
+  margin: 0.35rem 0.5rem; /* separación entre badges */
+  padding: 0.45rem 0.9rem;
+  background: linear-gradient(45deg, var(--accent-red), var(--accent-orange)) !important;
+  color: white !important;
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.3);
+  transition: all 0.2s ease;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 0.45rem;
+  text-align: center;
+}
+
+.badge:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(229, 57, 53, 0.3), 0 0 16px rgba(245, 124, 0, 0.18);
+}
+
+/* Contenedor de badges (flex + wrap) */
+.badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0.25rem auto;
+  width: 100%;
+  max-width: 980px;
+}
+
+/* Limitar ancho de cada badge y permitir salto de línea para textos largos */
+.badges-wrap .badge,
+.badge {
+  max-width: 260px;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+/* Botón principal con gradiente y sombras */
+.btn-warning {
+  background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange)) !important;
+  border: 2px solid var(--accent-gold) !important;
+  color: #1a1a1a !important;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(212, 160, 23, 0.4);
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', monospace;
+}
+
+.btn-warning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(229, 57, 53, 0.3), 0 0 40px rgba(245, 124, 0, 0.2);
+  background: linear-gradient(45deg, var(--accent-orange), var(--accent-red)) !important;
+}
+
+/* Botón outline con el mismo estilo */
+.btn-outline-warning {
+  border: 2px solid var(--accent-gold) !important;
+  color: var(--accent-gold) !important;
+  background: transparent;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(212, 160, 23, 0.2);
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', monospace;
+}
+
+.btn-outline-warning:hover {
+  background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange)) !important;
+  color: #1a1a1a !important;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(229, 57, 53, 0.3), 0 0 40px rgba(245, 124, 0, 0.2);
+}
+
+/* Border top del footer */
+.border-top {
+  border-color: var(--accent-gold) !important;
+}
+
+/* Títulos h3 con color dorado */
+h3 {
+  color: var(--accent-gold) !important;
+  font-family: 'Orbitron', monospace;
+  text-shadow: 0 2px 10px rgba(212, 160, 23, 0.3);
+}
+
+/* Alert de documentación */
+.alert-warning {
+  background: linear-gradient(135deg, rgba(229, 57, 53, 0.2), rgba(245, 124, 0, 0.2)) !important;
+  border: 2px solid var(--accent-gold) !important;
+  color: #ffffff !important;
+}
+
+.alert-heading {
+  color: var(--accent-gold) !important;
+  font-family: 'Orbitron', monospace;
+}
+
+/* Modal con el mismo estilo */
+.modal-content {
+  background: linear-gradient(135deg, var(--panel), var(--bg-dark)) !important;
+  border: 2px solid var(--accent-gold) !important;
+  box-shadow: 0 20px 60px rgba(229, 57, 53, 0.3), 0 0 40px rgba(245, 124, 0, 0.2);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--accent-gold) !important;
+}
+
+.modal-title {
+  font-family: 'Orbitron', monospace;
+}
+
+/* Botón cerrar del modal */
+.btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+.btn-close:hover {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--accent-gold));
+}
+
+/* Cards dentro del modal */
+.modal-body .card {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(13, 27, 42, 0.95)) !important;
+}
+
+.modal-body .card-header {
+  background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange)) !important;
+  border-bottom: 2px solid var(--accent-red) !important;
+}
+
+/* Animación de entrada para elementos */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card,
+.badge,
+.btn {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+}

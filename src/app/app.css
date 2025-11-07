@@ -1,3 +1,6 @@
+/* [06] app.css
+  6 - Estilos globales de la aplicación: paleta, layout y estilos base
+*/
 :root {
   /* Nueva paleta basada en la imagen proporcionada */
   --accent-red: #e53935; /* Rojo intenso / fuego */
